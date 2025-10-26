@@ -39,26 +39,34 @@ export default class HTMLElement extends Element {
   constructor(tagName) {
     super(tagName);
     this.style = {};
-    this.innerText = "";
+    this.innerText = ""; // legacy convenience
     this.id = "";
     this.classList = new ClassListSet();
 
-    // Legacy property handler (optional, for convenience in the mock)
+    // Legacy property handler
     this.onclick = null;
   }
 
-  set textContent(value) {
-    this.innerText = String(value);
+  // If children exist, aggregate their text (like real DOM).
+  // Otherwise fall back to legacy innerText.
+  get textContent() {
+    if (this.childNodes && this.childNodes.length) {
+      return this.childNodes
+        .map((n) => (typeof n.textContent === "string" ? n.textContent : ""))
+        .join("");
+    }
+    return this.innerText;
   }
 
-  get textContent() {
-    return this.innerText;
+  // Setting textContent clears children and sets innerText for simplicity.
+  set textContent(value) {
+    this.childNodes.length = 0;
+    this.innerText = String(value);
   }
 
   addClass(cls) {
     this.classList.add(cls);
   }
-
   removeClass(cls) {
     this.classList.remove(cls);
   }
@@ -69,7 +77,6 @@ export default class HTMLElement extends Element {
    *  - a bubbling, cancelable "click" Event
    */
   click() {
-    // on* property handler (roughly target-phase timing in real DOM)
     if (typeof this.onclick === "function") {
       try {
         this.onclick();
@@ -77,7 +84,6 @@ export default class HTMLElement extends Element {
         console.error(e);
       }
     }
-
     const evt = new Event("click", { bubbles: true, cancelable: true });
     this.dispatchEvent(evt);
   }

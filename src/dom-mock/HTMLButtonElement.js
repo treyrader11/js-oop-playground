@@ -9,10 +9,15 @@ export default class HTMLButtonElement extends HTMLElement {
 
   click() {
     if (this.disabled) {
-      console.log(`Button is disabled`);
+      console.log("Button is disabled");
       return;
     }
-    console.log(`Button pressed: "${this.innerText}"`);
-    if (this.onclick) this.onclick();
+
+    // Prefer aggregated text from children; fall back to innerText
+    const label = this.textContent || this.innerText || "";
+    console.log(`Button pressed: "${label}"`);
+
+    // Let HTMLElement handle onclick + dispatchEvent (capture → target → bubble)
+    super.click();
   }
 }
