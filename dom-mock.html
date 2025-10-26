@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,5 +7,56 @@
   <body>
     <h2>DOM Mock Playground (check console)</h2>
     <script type="module" src="/src/dom-mock/main.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mock DOM Sandbox</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/src/dom-mock/ui.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Mock DOM Sandbox</h1>
+        <p>Practice ES6 classes, inheritance, event phases, and a fake DOM.</p>
+      </header>
+
+      <section class="controls">
+        <div class="group">
+          <button id="simulate-click">Simulate Button Click</button>
+          <button id="toggle-title-class">Toggle .active on .title</button>
+        </div>
+        <div class="group">
+          <label>
+            Title Text:
+            <input id="title-input" type="text" placeholder="Edit title..." />
+          </label>
+          <button id="apply-title-text">Apply</button>
+        </div>
+      </section>
+
+      <section class="panes">
+        <div class="pane">
+          <h2>Tree View</h2>
+          <pre id="tree"></pre>
+        </div>
+        <div class="pane">
+          <h2>Rendered HTML</h2>
+          <pre id="html"></pre>
+        </div>
+      </section>
+
+      <section class="logs">
+        <h2>Event Log</h2>
+        <pre id="log"></pre>
+        <button id="clear-log">Clear Log</button>
+      </section>
+    </div>
+
+    <script type="module" src="/src/dom-mock/ui.js"></script>
   </body>
 </html>
