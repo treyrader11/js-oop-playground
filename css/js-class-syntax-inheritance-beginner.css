@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  margin-top: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.content {
+  padding: 40px;
+}
+
+.intro {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 4px solid #667eea;
+}
+
+.intro h2 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.intro ul {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+.challenge {
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.challenge:hover {
+  border-color: #667eea;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.challenge-number {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-right: 15px;
+}
+
+.challenge-title {
+  font-size: 1.5em;
+  color: #2d3748;
+}
+
+.challenge-description {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.requirements {
+  margin-top: 15px;
+}
+
+.requirements h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.requirements ul {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+.requirements li {
+  margin-bottom: 8px;
+}
+
+code {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+  color: #e83e8c;
+  font-size: 0.9em;
+}
+
+.bonus {
+  border: 2px solid #ffc107;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
+}
+
+.bonus .challenge-number {
+  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+}
+
+.bonus-badge {
+  display: inline-block;
+  background: #ffc107;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.setup {
+  background: #e7f3ff;
+  border-left: 4px solid #2196f3;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.setup h3 {
+  color: #2196f3;
+  margin-bottom: 15px;
+}
+
+.setup ol {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+.tips {
+  background: #f1f8e9;
+  border-left: 4px solid #4caf50;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.tips h3 {
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+.tips ul {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .challenge {
+    padding: 15px;
+  }
+}

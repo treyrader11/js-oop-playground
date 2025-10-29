@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Class & Inheritance Assessment</title>
+    <link
+      rel="stylesheet"
+      href="../css/js-class-syntax-inheritance-beginner.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 JavaScript Class & Inheritance Assessment</h1>
+        <div class="difficulty-badge">⭐ BEGINNER-INTERMEDIATE</div>
+      </div>
+
+      <div class="content">
+        <div class="intro">
+          <h2>Welcome to Your Assessment!</h2>
+          <p style="margin-bottom: 15px">
+            This assessment contains 5 progressive challenges plus a bonus that
+            will help you master JavaScript classes and inheritance. You'll
+            start with basic concepts and gradually move to more advanced
+            topics.
+          </p>
+          <ul>
+            <li>
+              Challenges 1-2: <strong>Beginner</strong> (Basic classes,
+              constructors, methods)
+            </li>
+            <li>
+              Challenges 3-4:
+              <strong>Beginner-Intermediate</strong> (Inheritance, super)
+            </li>
+            <li>
+              Challenge 5: <strong>Intermediate</strong> (Multi-level
+              inheritance, polymorphism)
+            </li>
+            <li>
+              Bonus: <strong>Intermediate</strong> (Static methods,
+              getters/setters)
+            </li>
+          </ul>
+        </div>
+
+        <div class="setup">
+          <h3>📋 Setup Instructions</h3>
+          <ol>
+            <li>
+              Create the JavaScript file:
+              <code>js-class-syntax-inheritance-beginner.js</code> in
+              <code>src/assessments/beginner/</code>
+            </li>
+            <li>
+              Create the CSS file:
+              <code>js-class-syntax-inheritance-beginner.css</code> in
+              <code>css/</code>
+            </li>
+            <li>This HTML file goes in: <code>html/</code></li>
+            <li>Copy the assessment code into the JavaScript file</li>
+            <li>
+              Import it in your <code>main.js</code>:
+              <code
+                >import
+                './assessments/beginner/js-class-syntax-inheritance-beginner.js';</code
+              >
+            </li>
+            <li>
+              Open your browser's Developer Console (F12) to see test results
+            </li>
+            <li>Write your solutions in the designated areas</li>
+            <li>Save and watch the tests auto-run!</li>
+          </ol>
+        </div>
+
+        <!-- Challenge 1 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">1</div>
+            <div class="challenge-title">Basic Class Creation</div>
+          </div>
+          <div class="challenge-description">
+            Create your first JavaScript class! This challenge introduces you to
+            the fundamentals: constructors, properties, and methods.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>Create a class called <code>Book</code></li>
+              <li>
+                Constructor should accept: <code>title</code>,
+                <code>author</code>, <code>pages</code>
+              </li>
+              <li>
+                Method <code>getInfo()</code> returns:
+                <code>"Title by Author - Pages pages"</code>
+              </li>
+              <li>
+                Method <code>read()</code> returns:
+                <code>"You are reading Title"</code>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">2</div>
+            <div class="challenge-title">Class with Private Fields</div>
+          </div>
+          <div class="challenge-description">
+            Learn about encapsulation using private fields. Private fields start
+            with <code>#</code>
+            and can only be accessed from within the class.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>Create a class called <code>BankAccount</code></li>
+              <li>Use a private field <code>#balance</code></li>
+              <li>
+                Constructor accepts: <code>accountHolder</code>,
+                <code>initialBalance</code>
+              </li>
+              <li>
+                Method <code>deposit(amount)</code> - adds to balance, returns
+                new balance
+              </li>
+              <li>
+                Method <code>withdraw(amount)</code> - subtracts if sufficient
+                funds, or returns <code>"Insufficient funds"</code>
+              </li>
+              <li>
+                Method <code>getBalance()</code> - returns current balance
+              </li>
+              <li>
+                Property <code>accountHolder</code> - stores account holder name
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">3</div>
+            <div class="challenge-title">Basic Inheritance</div>
+          </div>
+          <div class="challenge-description">
+            Introduction to inheritance! Learn how to create child classes that
+            extend parent classes and override methods.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create parent class <code>Animal</code> with:
+                <ul>
+                  <li>Constructor: <code>name</code>, <code>species</code></li>
+                  <li>
+                    Method <code>makeSound()</code>:
+                    <code>"Some generic animal sound"</code>
+                  </li>
+                  <li>
+                    Method <code>introduce()</code>:
+                    <code>"I am Name, a Species"</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create child class <code>Dog</code> that extends
+                <code>Animal</code>:
+                <ul>
+                  <li>Constructor: <code>name</code>, <code>breed</code></li>
+                  <li>Pass <code>"Dog"</code> as species to parent</li>
+                  <li>
+                    Override <code>makeSound()</code>:
+                    <code>"Woof! Woof!"</code>
+                  </li>
+                  <li>
+                    Add method <code>getBreed()</code> that returns the breed
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Challenge 4 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">4</div>
+            <div class="challenge-title">Inheritance with Super</div>
+          </div>
+          <div class="challenge-description">
+            Master the <code>super</code> keyword! Learn how to call parent
+            constructors and methods from child classes.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create parent class <code>Vehicle</code> with:
+                <ul>
+                  <li>
+                    Constructor: <code>make</code>, <code>model</code>,
+                    <code>year</code>
+                  </li>
+                  <li>
+                    Method <code>getAge()</code>: returns vehicle age (2025 -
+                    year)
+                  </li>
+                  <li>
+                    Method <code>getInfo()</code>:
+                    <code>"Year Make Model"</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create child class <code>ElectricCar</code> that extends
+                <code>Vehicle</code>:
+                <ul>
+                  <li>
+                    Constructor: <code>make</code>, <code>model</code>,
+                    <code>year</code>, <code>batteryCapacity</code>
+                  </li>
+                  <li>Use <code>super()</code> to call parent constructor</li>
+                  <li>
+                    Override <code>getInfo()</code>: parent's info +
+                    <code>" (Electric, XkWh battery)"</code>
+                  </li>
+                  <li>
+                    Add <code>getBatteryInfo()</code>:
+                    <code>"Battery capacity: XkWh"</code>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Challenge 5 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">5</div>
+            <div class="challenge-title">
+              Multi-Level Inheritance & Polymorphism
+            </div>
+          </div>
+          <div class="challenge-description">
+            Advanced inheritance! Create a three-level inheritance hierarchy and
+            see polymorphism in action as different classes override the same
+            methods.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create parent class <code>Shape</code> with:
+                <ul>
+                  <li>Constructor: <code>name</code></li>
+                  <li>Method <code>getArea()</code>: returns 0</li>
+                  <li>Method <code>getPerimeter()</code>: returns 0</li>
+                  <li>
+                    Method <code>describe()</code>:
+                    <code>"This is a Name with area X and perimeter Y"</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create child class <code>Rectangle</code> that extends
+                <code>Shape</code>:
+                <ul>
+                  <li>Constructor: <code>width</code>, <code>height</code></li>
+                  <li>Pass <code>"Rectangle"</code> to parent</li>
+                  <li>Override <code>getArea()</code>: width × height</li>
+                  <li>
+                    Override <code>getPerimeter()</code>: 2 × (width + height)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create grandchild class <code>Square</code> that extends
+                <code>Rectangle</code>:
+                <ul>
+                  <li>Constructor: <code>side</code></li>
+                  <li>Pass side for both width and height to parent</li>
+                  <li>
+                    Override <code>describe()</code>:
+                    <code
+                      >"This is a Square with side X, area Y and perimeter
+                      Z"</code
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bonus Challenge -->
+        <div class="challenge bonus">
+          <div class="challenge-header">
+            <div class="challenge-number">★</div>
+            <div class="challenge-title">
+              Static Methods & Getters/Setters
+              <span class="bonus-badge">BONUS</span>
+            </div>
+          </div>
+          <div class="challenge-description">
+            Master advanced class features! Learn about static methods
+            (class-level methods) and getters/setters (computed properties with
+            validation).
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create class <code>Temperature</code> with:
+                <ul>
+                  <li>Private field <code>#celsius</code></li>
+                  <li>Constructor: accepts celsius temperature</li>
+                  <li>
+                    Getter <code>celsius</code>: returns <code>#celsius</code>
+                  </li>
+                  <li>
+                    Setter <code>celsius</code>: sets
+                    <code>#celsius</code> (must be ≥ -273.15)
+                  </li>
+                  <li>
+                    Getter <code>fahrenheit</code>: returns (C × 9/5) + 32
+                  </li>
+                  <li>
+                    Setter <code>fahrenheit</code>: converts to celsius: (F -
+                    32) × 5/9
+                  </li>
+                  <li>
+                    Static <code>freezingPoint()</code>: returns new Temperature
+                    at 0°C
+                  </li>
+                  <li>
+                    Static <code>boilingPoint()</code>: returns new Temperature
+                    at 100°C
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tips">
+          <h3>💡 Tips for Success</h3>
+          <ul>
+            <li>
+              Use the <code>constructor</code> keyword for class constructors
+            </li>
+            <li>
+              Use <code>super()</code> to call parent constructor in child
+              classes
+            </li>
+            <li>
+              Private fields start with <code>#</code> and must be declared at
+              class level
+            </li>
+            <li>Use the <code>extends</code> keyword for inheritance</li>
+            <li>Use the <code>static</code> keyword for class-level methods</li>
+            <li>
+              Getters/setters use <code>get</code> and <code>set</code> keywords
+              before the method name
+            </li>
+            <li>Check the console after saving - tests run automatically!</li>
+            <li>
+              All tests should pass (✓) before moving to the next challenge
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Happy Coding! 🚀</p>
+        <p style="margin-top: 10px">
+          Remember: Practice makes perfect. Don't hesitate to experiment!
+        </p>
+      </div>
+    </div>
+  </body>
+  <script
+    type="module"
+    src="../src/assessments/beginner/js-class-syntax-inheritance-beginner.js"
+  ></script>
+</html>
