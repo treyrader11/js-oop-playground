@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Class & Inheritance Assessment - INTERMEDIATE</title>
+    <link
+      rel="stylesheet"
+      href="../css/js-class-syntax-inheritance-assessment.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 JavaScript Class & Inheritance Assessment</h1>
+        <div class="difficulty-badge">⭐⭐ INTERMEDIATE</div>
+      </div>
+
+      <div class="content">
+        <div class="intro">
+          <h2>Welcome to the Intermediate Assessment!</h2>
+          <p style="margin-bottom: 15px">
+            This assessment contains 6 intermediate challenges plus a bonus that
+            will deepen your understanding of JavaScript classes and advanced
+            OOP patterns. You should be comfortable with basic classes,
+            inheritance, and the super keyword before attempting these
+            challenges.
+          </p>
+          <ul>
+            <li>
+              Challenge 1: <strong>Method Chaining</strong> (Fluent interfaces)
+            </li>
+            <li>
+              Challenge 2: <strong>Abstract Base Classes</strong> (Template
+              pattern)
+            </li>
+            <li>
+              Challenge 3: <strong>Composition</strong> (Prefer composition over
+              inheritance)
+            </li>
+            <li>
+              Challenge 4: <strong>Factory Pattern</strong> (Creational design
+              pattern)
+            </li>
+            <li>
+              Challenge 5: <strong>Mixins</strong> (Code reuse without
+              inheritance)
+            </li>
+            <li>
+              Challenge 6: <strong>Singleton & Private Static</strong> (Advanced
+              encapsulation)
+            </li>
+            <li>
+              Bonus: <strong>Observer Pattern</strong> (Event-driven
+              programming)
+            </li>
+          </ul>
+        </div>
+
+        <div class="setup">
+          <h3>📋 Setup Instructions</h3>
+          <ol>
+            <li>
+              Create the JavaScript file:
+              <code>js-class-syntax-inheritance-intermediate.js</code> in
+              <code>src/assessments/intermediate/</code>
+            </li>
+            <li>
+              Create the CSS file:
+              <code>js-class-syntax-inheritance-intermediate.css</code> in
+              <code>css/</code>
+            </li>
+            <li>This HTML file goes in: <code>html/</code></li>
+            <li>Copy the assessment code into the JavaScript file</li>
+            <li>
+              Import it in your <code>main.js</code>:
+              <code
+                >import
+                './assessments/intermediate/js-class-syntax-inheritance-intermediate.js';</code
+              >
+            </li>
+            <li>
+              Open your browser's Developer Console (F12) to see test results
+            </li>
+            <li>Write your solutions in the designated areas</li>
+            <li>Save and watch the tests auto-run!</li>
+          </ol>
+        </div>
+
+        <!-- Challenge 1 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">1</div>
+            <div class="challenge-title">Method Chaining</div>
+          </div>
+          <div class="challenge-description">
+            Learn to create fluent interfaces by returning
+            <code>this</code> from methods. This pattern is used in popular
+            libraries like jQuery, Lodash, and query builders.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>Create a class called <code>QueryBuilder</code></li>
+              <li>
+                Initialize empty query string and conditions array in
+                constructor
+              </li>
+              <li>
+                Method <code>select(fields)</code> - sets fields, returns
+                <code>this</code>
+              </li>
+              <li>
+                Method <code>from(table)</code> - sets table, returns
+                <code>this</code>
+              </li>
+              <li>
+                Method <code>where(condition)</code> - adds to conditions array,
+                returns <code>this</code>
+              </li>
+              <li>
+                Method <code>orderBy(field)</code> - sets order field, returns
+                <code>this</code>
+              </li>
+              <li>
+                Method <code>build()</code> - constructs and returns final
+                SQL-like query string
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Return <code>this</code> from each method
+            to enable chaining. The build() method should concatenate all parts
+            with proper SQL keywords.
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">2</div>
+            <div class="challenge-title">Abstract Base Class Pattern</div>
+          </div>
+          <div class="challenge-description">
+            JavaScript doesn't have true abstract classes, but we can simulate
+            them by throwing errors in base class methods that must be
+            overridden. This enforces a contract that child classes must
+            implement specific methods.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create parent class <code>PaymentProcessor</code> with:
+                <ul>
+                  <li>Constructor: <code>merchantId</code></li>
+                  <li>
+                    Methods that throw errors: <code>processPayment()</code>,
+                    <code>refund()</code>
+                  </li>
+                  <li>Implemented method: <code>getReceipt()</code></li>
+                </ul>
+              </li>
+              <li>
+                Create child class <code>CreditCardProcessor</code>:
+                <ul>
+                  <li>
+                    Constructor: <code>merchantId</code>,
+                    <code>processingFee</code>
+                  </li>
+                  <li>Override abstract methods with real implementations</li>
+                  <li>Add <code>calculateFee()</code> method</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Use
+            <code>throw new Error(message)</code> in base class methods to force
+            child classes to override them.
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">3</div>
+            <div class="challenge-title">Composition Over Inheritance</div>
+          </div>
+          <div class="challenge-description">
+            Instead of creating deep inheritance hierarchies, use composition by
+            combining smaller, focused classes. This is a core principle of
+            modern software design and leads to more flexible, maintainable
+            code.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create <code>Engine</code> class:
+                <ul>
+                  <li>
+                    Constructor: <code>horsepower</code>, <code>type</code>
+                  </li>
+                  <li>
+                    Methods: <code>start()</code>, <code>getSpecs()</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create <code>GPS</code> class:
+                <ul>
+                  <li>Constructor: <code>provider</code></li>
+                  <li>Method: <code>navigate(destination)</code></li>
+                </ul>
+              </li>
+              <li>
+                Create <code>Car</code> class that uses both:
+                <ul>
+                  <li>Accept Engine and GPS instances in constructor</li>
+                  <li>Delegate method calls to component objects</li>
+                  <li>Handle case when GPS is null</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Store component objects as properties and
+            call their methods from Car's methods. This is delegation, not
+            inheritance!
+          </div>
+        </div>
+
+        <!-- Challenge 4 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">4</div>
+            <div class="challenge-title">Factory Pattern with Classes</div>
+          </div>
+          <div class="challenge-description">
+            The Factory pattern provides a centralized way to create objects.
+            Instead of calling constructors directly with <code>new</code>, you
+            call a factory method that decides which class to instantiate based
+            on input parameters.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create base class <code>Notification</code>:
+                <ul>
+                  <li>Abstract method: <code>send()</code></li>
+                  <li>Concrete method: <code>getDetails()</code></li>
+                </ul>
+              </li>
+              <li>
+                Create three child classes:
+                <ul>
+                  <li><code>EmailNotification</code> (has subject)</li>
+                  <li><code>SMSNotification</code> (has phoneNumber)</li>
+                  <li><code>PushNotification</code> (has deviceId)</li>
+                </ul>
+              </li>
+              <li>
+                Create <code>NotificationFactory</code> class:
+                <ul>
+                  <li>
+                    Static method: <code>createNotification(type, ...)</code>
+                  </li>
+                  <li>
+                    Returns appropriate notification subclass based on type
+                  </li>
+                  <li>Throws error for unknown types</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Use a switch statement or if-else chain in
+            the factory method to determine which class to instantiate.
+          </div>
+        </div>
+
+        <!-- Challenge 5 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">5</div>
+            <div class="challenge-title">Mixin Pattern</div>
+          </div>
+          <div class="challenge-description">
+            Mixins allow you to add functionality to classes without
+            inheritance. They're objects containing methods that get copied into
+            a class's prototype. This is perfect for cross-cutting concerns like
+            timestamps or validation.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create <code>TimestampMixin</code> object:
+                <ul>
+                  <li>
+                    <code>setCreatedAt()</code>, <code>setUpdatedAt()</code>
+                  </li>
+                  <li><code>getTimestamps()</code> returns both dates</li>
+                </ul>
+              </li>
+              <li>
+                Create <code>ValidationMixin</code> object:
+                <ul>
+                  <li><code>validate()</code> returns true by default</li>
+                  <li><code>isValid()</code> calls validate()</li>
+                </ul>
+              </li>
+              <li>
+                Create
+                <code>applyMixins(targetClass, ...mixins)</code> function:
+                <ul>
+                  <li>Copies all methods from mixins to class prototype</li>
+                  <li>Accepts any number of mixin objects</li>
+                </ul>
+              </li>
+              <li>Create <code>User</code> class and apply both mixins</li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Use <code>Object.assign()</code> or loop
+            through mixin properties and copy them to
+            <code>targetClass.prototype</code>.
+          </div>
+        </div>
+
+        <!-- Challenge 6 -->
+        <div class="challenge">
+          <div class="challenge-header">
+            <div class="challenge-number">6</div>
+            <div class="challenge-title">
+              Advanced Private Fields & Static Members
+            </div>
+          </div>
+          <div class="challenge-description">
+            Combine private static fields with the Singleton pattern to create a
+            class that can only have one instance. This is useful for database
+            connections, configuration managers, and other shared resources.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create <code>Database</code> class with:
+                <ul>
+                  <li>Private static field: <code>#instance</code></li>
+                  <li>
+                    Private instance fields: <code>#connected</code>,
+                    <code>#data</code>
+                  </li>
+                  <li>Private static field: <code>#connectionCount</code></li>
+                </ul>
+              </li>
+              <li>
+                Static method <code>getInstance()</code>:
+                <ul>
+                  <li>Creates instance only if it doesn't exist (Singleton)</li>
+                  <li>Always returns the same instance</li>
+                </ul>
+              </li>
+              <li>
+                Instance methods for connection management and data operations:
+                <ul>
+                  <li>
+                    <code>connect()</code>, <code>disconnect()</code>,
+                    <code>isConnected()</code>
+                  </li>
+                  <li><code>set(key, value)</code>, <code>get(key)</code></li>
+                  <li>
+                    Throw errors when operations attempted while disconnected
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> Private static fields are shared across
+            all instances (or in this case, the single instance). Use
+            <code>static #field</code> syntax.
+          </div>
+        </div>
+
+        <!-- Bonus Challenge -->
+        <div class="challenge bonus">
+          <div class="challenge-header">
+            <div class="challenge-number">★</div>
+            <div class="challenge-title">
+              Observer Pattern with Classes
+              <span class="bonus-badge">BONUS</span>
+            </div>
+          </div>
+          <div class="challenge-description">
+            The Observer pattern (also called Pub/Sub) is fundamental to
+            event-driven programming. Observers "subscribe" to events and get
+            notified when those events occur. This pattern is used extensively
+            in Node.js, React, and many other frameworks.
+          </div>
+          <div class="requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>
+                Create <code>EventEmitter</code> class with:
+                <ul>
+                  <li>
+                    Private field: <code>#events</code> (object storing
+                    listeners)
+                  </li>
+                  <li>
+                    <code>on(eventName, callback)</code> - register listener
+                  </li>
+                  <li>
+                    <code>emit(eventName, data)</code> - trigger all listeners
+                  </li>
+                  <li>
+                    <code>off(eventName, callback)</code> - remove specific
+                    listener
+                  </li>
+                  <li>
+                    <code>once(eventName, callback)</code> - listener that
+                    auto-removes after one call
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Create <code>NewsPublisher</code> that extends
+                <code>EventEmitter</code>:
+                <ul>
+                  <li>Method: <code>publishArticle(article)</code></li>
+                  <li>Emits 'article-published' event with article data</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hint">
+            💡 <strong>Hint:</strong> For <code>once()</code>, create a wrapper
+            function that calls the original callback and then removes itself
+            using <code>off()</code>.
+          </div>
+        </div>
+
+        <div class="tips">
+          <h3>💡 Key Intermediate Concepts</h3>
+          <ul>
+            <li>
+              <strong>Method Chaining:</strong> Return <code>this</code> to
+              allow consecutive method calls on the same object
+            </li>
+            <li>
+              <strong>Abstract Classes:</strong> Use error-throwing methods to
+              enforce contracts that child classes must implement
+            </li>
+            <li>
+              <strong>Composition:</strong> Build complex objects by combining
+              simpler ones instead of deep inheritance chains
+            </li>
+            <li>
+              <strong>Factory Pattern:</strong> Centralize object creation logic
+              in static methods or dedicated classes
+            </li>
+            <li>
+              <strong>Mixins:</strong> Share functionality across unrelated
+              classes by copying methods to prototypes
+            </li>
+            <li>
+              <strong>Singleton:</strong> Use static fields and methods to
+              ensure only one instance of a class exists
+            </li>
+            <li>
+              <strong>Observer Pattern:</strong> Implement event-driven
+              architecture with subscribe/publish mechanisms
+            </li>
+          </ul>
+        </div>
+
+        <div class="tips" style="background: #e8f5e9; border-color: #4caf50">
+          <h3>🚀 Next Steps After Completion</h3>
+          <ul>
+            <li>
+              Study real-world examples of these patterns in popular libraries
+            </li>
+            <li>
+              Experiment with combining patterns (e.g., Factory + Singleton)
+            </li>
+            <li>Try refactoring existing code to use these patterns</li>
+            <li>Learn about TypeScript for even better OOP with type safety</li>
+            <li>Explore functional programming as an alternative paradigm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Happy Coding! 🚀</p>
+        <p style="margin-top: 10px">
+          These patterns are used by professional developers every day. Master
+          them!
+        </p>
+      </div>
+    </div>
+  </body>
+  <script
+    type="module"
+    src="../src/assessments/intermediate/js-class-syntax-inheritance-intermediate.js"
+  ></script>
+</html>

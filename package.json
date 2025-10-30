@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:dom": "vite --open /dom-mock.html",
-    "dev:classes": "vite --open /html/js-class-syntax-inheritance-beginner.html",
+    "dev:assessment:beginner": "vite --open /html/js-class-syntax-inheritance-beginner.html",
+    "dev:assessment:intermediate": "vite --open /html/js-class-syntax-inheritance-intermediate.html",
     "build": "vite build",
     "preview": "vite preview"
   },
