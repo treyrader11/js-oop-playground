@@ -53,12 +53,10 @@ body {
   margin-bottom: 30px;
   border-left: 4px solid #667eea;
 }
-
 .intro h2 {
   color: #667eea;
   margin-bottom: 15px;
 }
-
 .intro ul {
   margin-left: 20px;
   line-height: 1.8;
@@ -72,7 +70,6 @@ body {
   margin-bottom: 25px;
   transition: all 0.3s ease;
 }
-
 .challenge:hover {
   border-color: #667eea;
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
@@ -119,18 +116,15 @@ body {
 .requirements {
   margin-top: 15px;
 }
-
 .requirements h4 {
   color: #667eea;
   margin-bottom: 10px;
   font-size: 1.1em;
 }
-
 .requirements ul {
   margin-left: 20px;
   line-height: 1.8;
 }
-
 .requirements li {
   margin-bottom: 8px;
 }
@@ -148,11 +142,9 @@ code {
   border: 2px solid #ffc107;
   background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
 }
-
 .bonus .challenge-number {
   background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
 }
-
 .bonus-badge {
   display: inline-block;
   background: #ffc107;
@@ -171,12 +163,10 @@ code {
   border-radius: 8px;
   margin-bottom: 30px;
 }
-
 .setup h3 {
   color: #2196f3;
   margin-bottom: 15px;
 }
-
 .setup ol {
   margin-left: 20px;
   line-height: 1.8;
@@ -189,12 +179,10 @@ code {
   border-radius: 8px;
   margin-top: 30px;
 }
-
 .tips h3 {
   color: #4caf50;
   margin-bottom: 15px;
 }
-
 .tips ul {
   margin-left: 20px;
   line-height: 1.8;
@@ -208,7 +196,6 @@ code {
   font-size: 0.9em;
 }
 
-/* Help Button Styles */
 .help-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -225,16 +212,13 @@ code {
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
   margin-left: auto;
 }
-
 .help-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
-
 .help-btn:active {
   transform: translateY(0);
 }
-
 .help-icon {
   display: inline-flex;
   align-items: center;
@@ -246,36 +230,47 @@ code {
   font-weight: bold;
   font-size: 1em;
 }
-
 .bonus-help {
   background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
   color: #000;
 }
-
 .bonus-help:hover {
   box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
 }
 
-.modal {
-  position: fixed; /* pin to the viewport */
-  inset: 0; /* top:0 right:0 bottom:0 left:0 */
-  width: 100vw;
-  height: 100vh;
-  max-width: none;
-  max-height: none;
-  margin: 0;
-  border-radius: 0; /* edge-to-edge */
-  overflow: auto; /* scroll content; header can stay sticky */
-  transform: none !important; /* override the scale animation */
-  opacity: 0; /* keep your fade-in */
-  transition: opacity 0.2s ease;
-  z-index: 1001; /* above the overlay backdrop */
-  pointer-events: none;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1001;
+  transform: none !important;
+}
 .modal.active {
   opacity: 1;
   pointer-events: auto;
@@ -284,48 +279,15 @@ code {
 .modal-header {
   position: sticky;
   top: 0;
+  z-index: 10;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px 30px;
   border-radius: 0;
-}
-
-/* Modal Overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Modal Header */
-.modal-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 25px 30px;
-  border-radius: 12px 12px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
-
 .modal-header h2 {
   font-size: 1.8em;
   margin: 0;
@@ -347,21 +309,17 @@ code {
   line-height: 1;
   padding: 0;
 }
-
 .modal-close:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: rotate(90deg);
 }
 
-/* Modal Body */
 .modal-body {
   padding: 30px;
 }
-
 .modal-section {
   margin-bottom: 25px;
 }
-
 .modal-section h3 {
   color: #667eea;
   font-size: 1.3em;
@@ -370,509 +328,21 @@ code {
   align-items: center;
   gap: 8px;
 }
-
-.modal-section p {
+.modal-section p,
+.modal-section ul {
   line-height: 1.8;
   color: #2d3748;
-  margin-bottom: 10px;
 }
-
 .modal-section ul {
   margin-left: 20px;
-  line-height: 1.8;
-  color: #2d3748;
 }
-
 .modal-section li {
   margin-bottom: 8px;
 }
-
 .modal-section strong {
   color: #667eea;
 }
 
-/* Code Example in Modal */
-.code-example {
-  background: #f8f9fa;
-  border-left: 4px solid #667eea;
-  border-radius: 6px;
-  padding: 15px;
-  margin-top: 15px;
-  overflow-x: auto;
-}
-
-.code-example pre {
-  margin: 0;
-  font-family: "Courier New", monospace;
-  font-size: 0.9em;
-  line-height: 1.6;
-  color: #2d3748;
-  white-space: pre;
-  overflow-x: auto;
-}
-
-/* Tip Section in Modal */
-.tip-section {
-  background: #f1f8e9;
-  border-left: 4px solid #4caf50;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-.tip-section h3 {
-  color: #4caf50;
-}
-
-.tip-section p {
-  margin: 0;
-}
-
-/* Scrollbar Styling for Modal */
-.modal::-webkit-scrollbar {
-  width: 8px;
-}
-
-.modal::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 0 12px 12px 0;
-}
-
-.modal::-webkit-scrollbar-thumb {
-  background: #667eea;
-  border-radius: 4px;
-}
-
-.modal::-webkit-scrollbar-thumb:hover {
-  background: #5568d3;
-}
-
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 1.8em;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  .challenge {
-    padding: 15px;
-  }
-
-  .challenge-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .challenge-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  .help-btn {
-    margin-left: 0;
-    align-self: flex-start;
-  }
-
-  /* .modal {
-    max-height: 95vh;
-  } */
-
-  .modal-header {
-    padding: 20px;
-  }
-
-  .modal-header h2 {
-    font-size: 1.4em;
-  }
-
-  .modal-body {
-    padding: 20px;
-  }
-
-  .modal-section h3 {
-    font-size: 1.1em;
-  }
-
-  .code-example pre {
-    font-size: 0.8em;
-  }
-
-  .modal-overlay {
-    padding: 10px;
-  }
-}
-
-/* with editor */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 40px;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.difficulty-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  margin-top: 10px;
-  backdrop-filter: blur(10px);
-}
-
-.content {
-  padding: 40px;
-}
-
-.intro {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  border-left: 4px solid #667eea;
-}
-
-.intro h2 {
-  color: #667eea;
-  margin-bottom: 15px;
-}
-
-.intro ul {
-  margin-left: 20px;
-  line-height: 1.8;
-}
-
-.challenge {
-  background: #fff;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  padding: 25px;
-  margin-bottom: 25px;
-  transition: all 0.3s ease;
-}
-
-.challenge:hover {
-  border-color: #667eea;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
-}
-
-.challenge-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.challenge-number {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-right: 15px;
-  flex-shrink: 0;
-}
-
-.challenge-title {
-  font-size: 1.5em;
-  color: #2d3748;
-  flex: 1;
-  min-width: 200px;
-}
-
-.challenge-description {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-.requirements {
-  margin-top: 15px;
-}
-
-.requirements h4 {
-  color: #667eea;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
-
-.requirements ul {
-  margin-left: 20px;
-  line-height: 1.8;
-}
-
-.requirements li {
-  margin-bottom: 8px;
-}
-
-code {
-  background: #e9ecef;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: "Courier New", monospace;
-  color: #e83e8c;
-  font-size: 0.9em;
-}
-
-.bonus {
-  border: 2px solid #ffc107;
-  background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
-}
-
-.bonus .challenge-number {
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
-}
-
-.bonus-badge {
-  display: inline-block;
-  background: #ffc107;
-  color: #000;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.8em;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.setup {
-  background: #e7f3ff;
-  border-left: 4px solid #2196f3;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-}
-
-.setup h3 {
-  color: #2196f3;
-  margin-bottom: 15px;
-}
-
-.setup ol {
-  margin-left: 20px;
-  line-height: 1.8;
-}
-
-.tips {
-  background: #f1f8e9;
-  border-left: 4px solid #4caf50;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 30px;
-}
-
-.tips h3 {
-  color: #4caf50;
-  margin-bottom: 15px;
-}
-
-.tips ul {
-  margin-left: 20px;
-  line-height: 1.8;
-}
-
-.footer {
-  text-align: center;
-  padding: 30px;
-  background: #f8f9fa;
-  color: #6c757d;
-  font-size: 0.9em;
-}
-
-/* Help Button Styles */
-.help-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-  margin-left: auto;
-}
-
-.help-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.help-btn:active {
-  transform: translateY(0);
-}
-
-.help-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.bonus-help {
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
-  color: #000;
-}
-
-.bonus-help:hover {
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-}
-
-/* Modal Overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal.active {
-  transform: scale(1) translateY(0);
-  opacity: 1;
-}
-
-/* Modal Header */
-.modal-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 25px 30px;
-  border-radius: 12px 12px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.modal-header h2 {
-  font-size: 1.8em;
-  margin: 0;
-}
-
-.modal-close {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  font-size: 2em;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  line-height: 1;
-  padding: 0;
-}
-
-.modal-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(90deg);
-}
-
-/* Modal Body */
-.modal-body {
-  padding: 30px;
-}
-
-.modal-section {
-  margin-bottom: 25px;
-}
-
-.modal-section h3 {
-  color: #667eea;
-  font-size: 1.3em;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.modal-section p {
-  line-height: 1.8;
-  color: #2d3748;
-  margin-bottom: 10px;
-}
-
-.modal-section ul {
-  margin-left: 20px;
-  line-height: 1.8;
-  color: #2d3748;
-}
-
-.modal-section li {
-  margin-bottom: 8px;
-}
-
-.modal-section strong {
-  color: #667eea;
-}
-
-/* Code Example in Modal */
 .code-example {
   background: #f8f9fa;
   border-left: 4px solid #667eea;
@@ -882,7 +352,6 @@ code {
   overflow-x: auto;
   position: relative;
 }
-
 .code-example pre {
   margin: 0;
   font-family: "Courier New", monospace;
@@ -894,7 +363,6 @@ code {
   padding-top: 35px;
 }
 
-/* Copy Code Button */
 .copy-code-btn {
   position: absolute;
   top: 10px;
@@ -914,69 +382,40 @@ code {
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .copy-code-btn:hover {
   background: #5568d3;
   transform: translateY(-1px);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
-
 .copy-code-btn:active {
   transform: translateY(0);
 }
-
-.copy-code-btn svg {
-  flex-shrink: 0;
-}
-
 .copy-code-btn.copied {
   background: #4caf50;
 }
-
 .copy-code-btn.copied:hover {
   background: #45a049;
 }
-
 .copy-text {
   white-space: nowrap;
 }
 
-/* Tip Section in Modal */
-.tip-section {
-  background: #f1f8e9;
-  border-left: 4px solid #4caf50;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-.tip-section h3 {
-  color: #4caf50;
-}
-
-.tip-section p {
-  margin: 0;
-}
-
-/* Scrollbar Styling for Modal */
+/* Scrollbar inside the modal only */
 .modal::-webkit-scrollbar {
   width: 8px;
 }
-
 .modal::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 0 12px 12px 0;
 }
-
 .modal::-webkit-scrollbar-thumb {
   background: #667eea;
   border-radius: 4px;
 }
-
 .modal::-webkit-scrollbar-thumb:hover {
   background: #5568d3;
 }
 
-/* Interactive Code Editor Styles */
+/* ========== Interactive Code Editor (kept as-is) ========== */
 .code-editor-section {
   margin-top: 20px;
   border: 2px solid #e9ecef;
@@ -984,7 +423,6 @@ code {
   overflow: hidden;
   background: #f8f9fa;
 }
-
 .editor-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -994,7 +432,6 @@ code {
   align-items: center;
   font-weight: 600;
 }
-
 .reset-btn {
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -1005,12 +442,10 @@ code {
   font-size: 0.9em;
   transition: all 0.3s ease;
 }
-
 .reset-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
 }
-
 .code-editor {
   width: 100%;
   min-height: 300px;
@@ -1025,12 +460,10 @@ code {
   outline: none;
   tab-size: 2;
 }
-
 .code-editor:focus {
   outline: 2px solid #667eea;
   outline-offset: -2px;
 }
-
 .run-btn {
   width: 100%;
   background: #4caf50;
@@ -1046,17 +479,14 @@ code {
   justify-content: center;
   gap: 8px;
 }
-
 .run-btn:hover {
   background: #45a049;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
 }
-
 .run-btn:active {
   transform: translateY(0);
 }
-
 .console-output {
   padding: 20px;
   background: #f8f9fa;
@@ -1065,13 +495,11 @@ code {
   overflow-y: auto;
   border-top: 2px solid #e9ecef;
 }
-
 .console-output:empty::before {
   content: 'Click "Run Tests" to see results here...';
   color: #999;
   font-style: italic;
 }
-
 .test-running {
   color: #667eea;
   font-weight: 600;
@@ -1079,7 +507,6 @@ code {
   text-align: center;
   padding: 20px;
 }
-
 .test-summary {
   padding: 15px;
   border-radius: 8px;
@@ -1087,19 +514,16 @@ code {
   font-size: 1.1em;
   text-align: center;
 }
-
 .test-summary.all-passed {
   background: #d4edda;
   color: #155724;
   border: 2px solid #c3e6cb;
 }
-
 .test-summary.some-failed {
   background: #f8d7da;
   color: #721c24;
   border: 2px solid #f5c6cb;
 }
-
 .test-result {
   padding: 12px 15px;
   margin-bottom: 10px;
@@ -1107,49 +531,40 @@ code {
   border-left: 4px solid;
   background: white;
 }
-
 .test-result.passed {
   border-left-color: #4caf50;
   background: #f1f8f4;
 }
-
 .test-result.failed {
   border-left-color: #f44336;
   background: #fff1f0;
 }
-
 .test-header {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
 }
-
 .test-icon {
   font-size: 1.2em;
   font-weight: bold;
 }
-
 .test-result.passed .test-icon {
   color: #4caf50;
 }
-
 .test-result.failed .test-icon {
   color: #f44336;
 }
-
 .test-name {
   color: #2d3748;
   font-size: 0.95em;
 }
-
 .test-details {
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid #e9ecef;
   font-size: 0.9em;
 }
-
 .test-error {
   color: #f44336;
   background: #ffebee;
@@ -1158,7 +573,6 @@ code {
   font-family: "Courier New", monospace;
   word-break: break-word;
 }
-
 .test-expected,
 .test-actual {
   padding: 8px;
@@ -1166,78 +580,59 @@ code {
   font-family: "Courier New", monospace;
   margin-top: 5px;
 }
-
 .test-expected {
   background: #e8f5e9;
   color: #2e7d32;
 }
-
 .test-actual {
   background: #ffebee;
   color: #c62828;
 }
-
 .test-expected::before {
   content: "✓ Expected: ";
   font-weight: bold;
 }
-
 .test-actual::before {
   content: "✗ Actual: ";
   font-weight: bold;
 }
 
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
   .header h1 {
     font-size: 1.8em;
   }
-
   .content {
     padding: 20px;
   }
-
   .challenge {
     padding: 15px;
   }
-
   .challenge-header {
     flex-direction: column;
     align-items: flex-start;
   }
-
   .challenge-title {
     font-size: 1.2em;
     margin-bottom: 10px;
   }
-
   .help-btn {
     margin-left: 0;
     align-self: flex-start;
   }
 
-  .modal {
-    /* width: 90vw !important; */
-    /* min-width: 90vw !important; */
-    /* max-width: 1400px !important; */
-    max-height: 95vh;
-  }
-
   .modal-header {
     padding: 20px;
   }
-
   .modal-header h2 {
     font-size: 1.4em;
   }
-
   .modal-body {
     padding: 20px;
   }
-
   .modal-section h3 {
     font-size: 1.1em;
   }
-
   .code-example pre {
     font-size: 0.8em;
   }
@@ -1246,7 +641,6 @@ code {
     padding: 5px 10px;
     font-size: 0.75em;
   }
-
   .copy-code-btn .copy-text {
     display: none;
   }
@@ -1256,23 +650,16 @@ code {
     min-height: 250px;
     padding: 15px;
   }
-
   .editor-header {
     padding: 10px 15px;
     font-size: 0.9em;
   }
-
   .test-result {
     padding: 10px;
     font-size: 0.9em;
   }
-
   .console-output {
     padding: 15px;
     font-size: 0.9em;
-  }
-
-  .modal-overlay {
-    padding: 10px;
   }
 }
