@@ -6,7 +6,7 @@
     <title>JS Class & Inheritance Assessment</title>
     <link
       rel="stylesheet"
-      href="../css/js-class-syntax-inheritance-assessment.css"
+      href="../css/js-class-syntax-inheritance-assessment.css?v=3"
     />
   </head>
   <body>
@@ -80,6 +80,9 @@
           <div class="challenge-header">
             <div class="challenge-number">1</div>
             <div class="challenge-title">Basic Class Creation</div>
+            <button class="help-btn" data-modal="modal-1">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Create your first JavaScript class! This challenge introduces you to
@@ -110,6 +113,9 @@
           <div class="challenge-header">
             <div class="challenge-number">2</div>
             <div class="challenge-title">Class with Private Fields</div>
+            <button class="help-btn" data-modal="modal-2">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Learn about encapsulation using private fields. Private fields start
@@ -148,6 +154,9 @@
           <div class="challenge-header">
             <div class="challenge-number">3</div>
             <div class="challenge-title">Basic Inheritance</div>
+            <button class="help-btn" data-modal="modal-3">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Introduction to inheritance! Learn how to create child classes that
@@ -194,6 +203,9 @@
           <div class="challenge-header">
             <div class="challenge-number">4</div>
             <div class="challenge-title">Inheritance with Super</div>
+            <button class="help-btn" data-modal="modal-4">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Master the <code>super</code> keyword! Learn how to call parent
@@ -249,6 +261,9 @@
             <div class="challenge-title">
               Multi-Level Inheritance & Polymorphism
             </div>
+            <button class="help-btn" data-modal="modal-5">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Advanced inheritance! Create a three-level inheritance hierarchy and
@@ -309,6 +324,9 @@
               Static Methods & Getters/Setters
               <span class="bonus-badge">BONUS</span>
             </div>
+            <button class="help-btn bonus-help" data-modal="modal-bonus">
+              <span class="help-icon">?</span> Help
+            </button>
           </div>
           <div class="challenge-description">
             Master advanced class features! Learn about static methods
@@ -386,9 +404,720 @@
         </p>
       </div>
     </div>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="modal-overlay">
+      <!-- Modal 1: Basic Class Creation -->
+      <div class="modal" id="modal-1">
+        <div class="modal-header">
+          <h2>📚 Challenge 1: Basic Class Creation</h2>
+          <button class="modal-close" data-close="modal-1">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              This challenge introduces the fundamental building blocks of
+              JavaScript classes: constructors, properties, and methods.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Class Basics</h3>
+            <p>A class is like a blueprint for creating objects. It defines:</p>
+            <ul>
+              <li>
+                <strong>Properties:</strong> Data that each object will have
+              </li>
+              <li>
+                <strong>Methods:</strong> Functions that each object can perform
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+  }
+
+  getInfo() {
+    return `${this.title} by ${this.author} - ${this.pages} pages`;
+  }
+
+  read() {
+    return `You are reading ${this.title}`;
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                <code>constructor</code> runs automatically when creating a new
+                instance
+              </li>
+              <li>
+                <code>this</code> refers to the current instance of the class
+              </li>
+              <li>Methods are functions defined inside the class</li>
+              <li>
+                Use template literals (<code>`${}`</code>) to construct strings
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              Always use <code>this.propertyName</code> to access properties
+              inside class methods. Without <code>this</code>, JavaScript won't
+              know you're referring to the class property!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 2: Private Fields -->
+      <div class="modal" id="modal-2">
+        <div class="modal-header">
+          <h2>🔒 Challenge 2: Class with Private Fields</h2>
+          <button class="modal-close" data-close="modal-2">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              Encapsulation is a core principle of object-oriented programming.
+              Private fields allow you to hide internal data and control how
+              it's accessed.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Private Fields</h3>
+            <p>Private fields in JavaScript:</p>
+            <ul>
+              <li>Start with a <code>#</code> symbol</li>
+              <li>Must be declared at the top of the class</li>
+              <li>Cannot be accessed from outside the class</li>
+              <li>Provide data protection and encapsulation</li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+class BankAccount {
+  #balance; // Private field declaration
+
+  constructor(accountHolder, initialBalance) {
+    this.accountHolder = accountHolder;
+    this.#balance = initialBalance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+    return this.#balance;
+  }
+
+  withdraw(amount) {
+    if (amount > this.#balance) {
+      return "Insufficient funds";
+    }
+    this.#balance -= amount;
+    return this.#balance;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                Private fields are declared at the class level (before
+                constructor)
+              </li>
+              <li>
+                Use <code>#</code> prefix every time you access the private
+                field
+              </li>
+              <li>
+                Methods act as gatekeepers, controlling access to private data
+              </li>
+              <li>This prevents direct manipulation of sensitive data</li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              Private fields help prevent bugs by ensuring data can only be
+              modified through your controlled methods. This is especially
+              important for sensitive data like account balances!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 3: Basic Inheritance -->
+      <div class="modal" id="modal-3">
+        <div class="modal-header">
+          <h2>🐕 Challenge 3: Basic Inheritance</h2>
+          <button class="modal-close" data-close="modal-3">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              Inheritance allows you to create specialized classes based on more
+              general ones. Child classes inherit properties and methods from
+              their parents.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 How Inheritance Works</h3>
+            <ul>
+              <li>
+                Parent class contains <strong>common</strong> properties and
+                methods
+              </li>
+              <li>
+                Child class <strong>extends</strong> the parent with
+                <code>extends</code>
+              </li>
+              <li>
+                Child inherits all parent properties and methods automatically
+              </li>
+              <li>
+                Child can <strong>override</strong> parent methods to customize
+                behavior
+              </li>
+              <li>
+                Child can add <strong>new</strong> methods specific to itself
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+// Parent class
+class Animal {
+  constructor(name, species) {
+    this.name = name;
+    this.species = species;
+  }
+
+  makeSound() {
+    return "Some generic animal sound";
+  }
+
+  introduce() {
+    return `I am ${this.name}, a ${this.species}`;
+  }
+}
+
+// Child class
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name, "Dog"); // Call parent constructor
+    this.breed = breed;
+  }
+
+  makeSound() {
+    return "Woof! Woof!"; // Override parent method
+  }
+
+  getBreed() {
+    return this.breed; // New method
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                <code>extends</code> keyword creates the inheritance
+                relationship
+              </li>
+              <li>
+                <code>super()</code> must be called before using
+                <code>this</code> in child constructor
+              </li>
+              <li>Overriding means providing a new implementation</li>
+              <li>
+                Child class has access to all parent methods unless overridden
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              Think of inheritance as a "is-a" relationship. A Dog
+              <strong>is an</strong> Animal, so it makes sense for Dog to extend
+              Animal and inherit its general behaviors!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 4: Super Keyword -->
+      <div class="modal" id="modal-4">
+        <div class="modal-header">
+          <h2>⚡ Challenge 4: Inheritance with Super</h2>
+          <button class="modal-close" data-close="modal-4">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              The <code>super</code> keyword is your gateway to the parent
+              class. It lets you call parent constructors and methods while
+              adding new functionality.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Understanding Super</h3>
+            <p>The <code>super</code> keyword has two main uses:</p>
+            <ul>
+              <li>
+                <strong>In constructor:</strong>
+                <code>super(args)</code> calls the parent constructor
+              </li>
+              <li>
+                <strong>In methods:</strong> <code>super.methodName()</code>
+                calls parent methods
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+class Vehicle {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  getAge() {
+    return 2025 - this.year;
+  }
+
+  getInfo() {
+    return `${this.year} ${this.make} ${this.model}`;
+  }
+}
+
+class ElectricCar extends Vehicle {
+  constructor(make, model, year, batteryCapacity) {
+    super(make, model, year); // Call parent constructor
+    this.batteryCapacity = batteryCapacity;
+  }
+
+  getInfo() {
+    // Call parent method and extend it
+    return `${super.getInfo()} (Electric, ${this.batteryCapacity}kWh battery)`;
+  }
+
+  getBatteryInfo() {
+    return `Battery capacity: ${this.batteryCapacity}kWh`;
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                <code>super()</code> <strong>must</strong> be called before
+                accessing <code>this</code>
+              </li>
+              <li>
+                Use <code>super.method()</code> to reuse parent functionality
+              </li>
+              <li>You can combine parent behavior with new functionality</li>
+              <li>
+                This promotes code reuse and maintains the inheritance chain
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              When overriding methods, use <code>super.methodName()</code> to
+              keep the parent's logic and just add to it. This is better than
+              rewriting everything from scratch!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 5: Multi-Level Inheritance -->
+      <div class="modal" id="modal-5">
+        <div class="modal-header">
+          <h2>🔷 Challenge 5: Multi-Level Inheritance & Polymorphism</h2>
+          <button class="modal-close" data-close="modal-5">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              Multi-level inheritance creates a hierarchy of classes, each
+              adding more specific functionality. Polymorphism allows different
+              classes to implement the same methods in their own way.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Inheritance Hierarchy</h3>
+            <p>In this challenge, you'll create three levels:</p>
+            <ul>
+              <li>
+                <strong>Shape</strong> (Grandparent): Most general, basic
+                structure
+              </li>
+              <li>
+                <strong>Rectangle</strong> (Parent): Extends Shape, adds
+                specific calculations
+              </li>
+              <li>
+                <strong>Square</strong> (Child): Extends Rectangle, specialized
+                rectangle
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+class Shape {
+  constructor(name) {
+    this.name = name;
+  }
+
+  getArea() {
+    return 0; // Default implementation
+  }
+
+  getPerimeter() {
+    return 0;
+  }
+
+  describe() {
+    return `This is a ${this.name} with area ${this.getArea()} and perimeter ${this.getPerimeter()}`;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super("Rectangle");
+    this.width = width;
+    this.height = height;
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+
+  getPerimeter() {
+    return 2 * (this.width + this.height);
+  }
+}
+
+class Square extends Rectangle {
+  constructor(side) {
+    super(side, side); // A square is a rectangle with equal sides
+  }
+
+  describe() {
+    return `This is a Square with side ${this.width}, area ${this.getArea()} and perimeter ${this.getPerimeter()}`;
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                <strong>Polymorphism:</strong> Each class provides its own
+                implementation of methods
+              </li>
+              <li>
+                <strong>Inheritance chain:</strong> Square inherits from
+                Rectangle, which inherits from Shape
+              </li>
+              <li>Methods can be overridden at any level</li>
+              <li>
+                <code>describe()</code> automatically uses the correct
+                <code>getArea()</code> and <code>getPerimeter()</code> for each
+                class
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              Notice how Square doesn't need to override
+              <code>getArea()</code> or <code>getPerimeter()</code> because it
+              inherits Rectangle's implementations, which work perfectly for a
+              square! This is smart code reuse.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bonus: Static & Getters/Setters -->
+      <div class="modal" id="modal-bonus">
+        <div class="modal-header">
+          <h2>⭐ Bonus: Static Methods & Getters/Setters</h2>
+          <button class="modal-close" data-close="modal-bonus">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>🎯 What You'll Learn</h3>
+            <p>
+              Advanced class features that make your code more elegant and
+              powerful: static methods for class-level functionality and
+              getters/setters for computed properties with validation.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Static Methods</h3>
+            <ul>
+              <li>Belong to the class itself, not instances</li>
+              <li>
+                Called on the class: <code>Temperature.freezingPoint()</code>
+              </li>
+              <li>Cannot access instance properties (no <code>this</code>)</li>
+              <li>Perfect for factory methods and utility functions</li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>📖 Getters and Setters</h3>
+            <ul>
+              <li>Look like properties but act like methods</li>
+              <li>
+                Getters: access with <code>obj.property</code> (no parentheses)
+              </li>
+              <li>Setters: assign with <code>obj.property = value</code></li>
+              <li>Allow validation and computed values</li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💡 Example Structure</h3>
+            <div class="code-example">
+              <pre>
+class Temperature {
+  #celsius;
+
+  constructor(celsius) {
+    this.#celsius = celsius;
+  }
+
+  // Getter - access like: temp.celsius
+  get celsius() {
+    return this.#celsius;
+  }
+
+  // Setter - use like: temp.celsius = 25
+  set celsius(value) {
+    if (value < -273.15) {
+      throw new Error("Temperature below absolute zero!");
+    }
+    this.#celsius = value;
+  }
+
+  // Computed property with getter
+  get fahrenheit() {
+    return (this.#celsius * 9/5) + 32;
+  }
+
+  // Setter converts Fahrenheit to Celsius
+  set fahrenheit(value) {
+    this.celsius = (value - 32) * 5/9;
+  }
+
+  // Static method - call with Temperature.freezingPoint()
+  static freezingPoint() {
+    return new Temperature(0);
+  }
+
+  static boilingPoint() {
+    return new Temperature(100);
+  }
+}</pre
+              >
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🔑 Key Concepts</h3>
+            <ul>
+              <li>
+                Use <code>get</code> keyword before method name for getters
+              </li>
+              <li>
+                Use <code>set</code> keyword before method name for setters
+              </li>
+              <li>Use <code>static</code> keyword for class-level methods</li>
+              <li>Getters/setters are accessed like properties, not methods</li>
+              <li>Static methods create instances or provide utilities</li>
+            </ul>
+          </div>
+
+          <div class="modal-section tip-section">
+            <h3>💡 Pro Tip</h3>
+            <p>
+              Getters and setters make your API cleaner. Instead of
+              <code>temp.getCelsius()</code> and
+              <code>temp.setCelsius(25)</code>, you can use
+              <code>temp.celsius</code> and <code>temp.celsius = 25</code>. Much
+              more intuitive!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Modal functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const overlay = document.getElementById("modal-overlay");
+        const helpButtons = document.querySelectorAll(".help-btn");
+        const closeButtons = document.querySelectorAll(".modal-close");
+
+        // Open modal
+        helpButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            overlay.classList.add("active");
+            modal.classList.add("active");
+          });
+        });
+
+        // Close modal
+        closeButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-close");
+            const modal = document.getElementById(modalId);
+            overlay.classList.remove("active");
+            modal.classList.remove("active");
+          });
+        });
+
+        // Close modal on overlay click
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) {
+            overlay.classList.remove("active");
+            document
+              .querySelectorAll(".modal")
+              .forEach((m) => m.classList.remove("active"));
+          }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            overlay.classList.remove("active");
+            document
+              .querySelectorAll(".modal")
+              .forEach((m) => m.classList.remove("active"));
+          }
+        });
+
+        // Add copy buttons to code examples
+        document.querySelectorAll(".code-example").forEach((codeBlock) => {
+          // Create copy button
+          const copyBtn = document.createElement("button");
+          copyBtn.className = "copy-code-btn";
+          copyBtn.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-text">Copy</span>
+          `;
+          copyBtn.title = "Copy code";
+
+          // Insert copy button
+          codeBlock.style.position = "relative";
+          codeBlock.insertBefore(copyBtn, codeBlock.firstChild);
+
+          // Copy functionality
+          copyBtn.addEventListener("click", function () {
+            const code = codeBlock.querySelector("pre").textContent;
+            navigator.clipboard.writeText(code).then(
+              function () {
+                // Success feedback
+                copyBtn.classList.add("copied");
+                copyBtn.innerHTML = `
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span class="copy-text">Copied!</span>
+                `;
+
+                // Reset after 2 seconds
+                setTimeout(function () {
+                  copyBtn.classList.remove("copied");
+                  copyBtn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  `;
+                }, 2000);
+              },
+              function (err) {
+                console.error("Could not copy text: ", err);
+              }
+            );
+          });
+        });
+      });
+    </script>
+
+    <script
+      type="module"
+      src="../src/assessments/beginner/js-class-syntax-inheritance-beginner.js"
+    ></script>
   </body>
-  <script
-    type="module"
-    src="../src/assessments/beginner/js-class-syntax-inheritance-beginner.js"
-  ></script>
 </html>
